@@ -1,0 +1,14 @@
+version: '3'
+services:
+  node-app:
+    build: .
+    image: phishing-app
+    ports:
+      - "3000:3000"
+  nginx:
+    build: .
+    image: my-nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - node-app
